@@ -1,12 +1,11 @@
 func twoSum(nums []int, target int) []int {
-	m := map[int]int{}
-	for id, v := range nums {
-		pair_id, ok := m[target-v]
-		if !ok {
-			m[v] = id
-			continue
+	m := make(map[int]int)
+	for k, v := range nums {
+		pairNum := target - v
+		if pairIndex, ok := m[pairNum]; ok {
+			return []int{pairIndex, k}
 		}
-		return []int{pair_id, id}
+		m[v] = k
 	}
 	return nil
 }
