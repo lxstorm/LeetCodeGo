@@ -1,40 +1,22 @@
-func lengthOfLongestSubstring(s string) int {
-	start, end, maxLen := 0, 0, 0
-	m := map[byte]int{}
+package LongestSubstringWithoutRepeatingCharacters
 
-	for ; end < len(s); end++ {
-		id, ok := m[s[end]]
-		if ok && id >= start {
-			start = id + 1
+func lengthOfLongestSubstring(s string) int {
+	m := make(map[byte]int)
+	leftPos, rightPos, maxLen := 0, 0, 0
+	l := len(s)
+	for ; rightPos < l; rightPos++ {
+		curChar := s[rightPos]
+		lastPos, ok := m[curChar]
+		if ok && lastPos >= leftPos {
+			leftPos = lastPos + 1
 		}
-		m[s[end]] = end
-		curLen := end - start + 1
+		// calulate the cur not repeating substr len
+		// otherwise the last not repeating len
+		curLen := rightPos - leftPos + 1
 		if curLen > maxLen {
 			maxLen = curLen
 		}
+		m[curChar] = rightPos
 	}
-
 	return maxLen
 }
-
-//2018.2.2 rewrite
-//func lengthOfLongestSubstring(s string) int {
-//slen := len(s)
-//m := make(map[byte]int)
-//left, right, maxLen := 0, 0, 0
-
-//for ; right < slen; right++ {
-//curChar := s[right]
-//lastPos, ok := m[curChar]
-//m[curChar] = right
-//if ok && lastPos >= left {
-//left = lastPos + 1
-//continue
-//}
-//l := right - left + 1
-//if l > maxLen {
-//maxLen = l
-//}
-//}
-//return maxLen
-//}
