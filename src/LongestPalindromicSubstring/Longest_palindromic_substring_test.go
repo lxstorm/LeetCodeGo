@@ -1,0 +1,34 @@
+package LongestPalindromicSubstring
+
+import "testing"
+
+type testCase struct {
+	s   string
+	ans string
+}
+
+func TestLongestPalindromic(t *testing.T) {
+	testCases := []testCase{
+		testCase{
+			s:   "babad",
+			ans: "aba",
+		},
+		testCase{
+			s:   "cbbd",
+			ans: "bb",
+		},
+		testCase{
+			s:   "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa",
+			ans: "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa",
+		},
+	}
+	for _, curCase := range testCases {
+		result := longestPalindrome(curCase.s)
+		if result != curCase.ans {
+			t.Errorf("Case is %v, want %v, calculated %v",
+				curCase.s,
+				curCase.ans,
+				result)
+		}
+	}
+}
