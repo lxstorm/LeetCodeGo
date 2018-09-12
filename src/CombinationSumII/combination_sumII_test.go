@@ -1,4 +1,4 @@
-package CombinationSum
+package CombinationSumII
 
 import (
 	"fmt"
@@ -11,32 +11,26 @@ type testCase struct {
 	ans        [][]int
 }
 
-func TestT(t *testing.T) {
+func TestF(t *testing.T) {
 	testCases := []testCase{
 		testCase{
-			candidates: []int{2, 3, 6, 7},
-			target:     7,
-			ans: [][]int{
-				[]int{7},
-				[]int{2, 2, 3},
-			},
-		},
-		testCase{
-			candidates: []int{2, 3, 5},
+			candidates: []int{10, 1, 2, 7, 6, 1, 5},
 			target:     8,
 			ans: [][]int{
-				[]int{2, 2, 2, 2},
-				[]int{2, 3, 3},
-				[]int{3, 5},
+				[]int{1, 7},
+				[]int{1, 2, 5},
+				[]int{2, 6},
+				[]int{1, 1, 6},
 			},
 		},
 	}
 	for _, curCase := range testCases {
-		result := combinationSum(curCase.candidates, curCase.target)
+		result := combinationSum2(curCase.candidates, curCase.target)
 		fmt.Printf("TestCase is candidates: %v, target: %v, ans: %v, result: %v\n",
 			curCase.candidates,
 			curCase.target,
 			curCase.ans,
 			result)
 	}
+
 }

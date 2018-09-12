@@ -20,7 +20,7 @@ package SearchInsertPosition
 // another method can handle duplicate
 func searchInsert(nums []int, target int) int {
 	l, r := 0, len(nums)-1
-	// invariant pos in low to high
+	// invariant pos in low to high + 1
 	for l <= r {
 		mid := (l + r) / 2
 		if nums[mid] < target {
