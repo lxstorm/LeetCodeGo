@@ -7,11 +7,9 @@ func nextPermutation(nums []int) {
 
 	if i != 0 {
 		for j := len(nums) - 1; j >= i; {
-			if nums[j] > nums[i-1] {
-				nums[i-1], nums[j] = nums[j], nums[i-1]
-				break
+			for ; nums[j] <= nums[i-1]; j-- {
 			}
-			j--
+			nums[j], nums[i-1] = nums[i-1], nums[j]
 		}
 	}
 	for k, l := i, len(nums)-1; k < l; k, l = k+1, l-1 {

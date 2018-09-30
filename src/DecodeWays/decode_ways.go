@@ -68,11 +68,10 @@ func numDecodingsBacktrack(s string) int {
 		}
 		for i := begin; i < l; i++ {
 			curPart := s[begin : i+1]
-			if isValidAplhabet(curPart) {
-				helper(i + 1)
-			} else {
+			if !isValidAplhabet(curPart) {
 				break
 			}
+			helper(i + 1)
 		}
 	}
 	helper(0)

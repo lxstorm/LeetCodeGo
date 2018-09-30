@@ -36,6 +36,7 @@ func myAtoi(str string) int {
 			result = result*10 + int64(posFlag)*addon
 			if result < math.MinInt32 {
 				result = math.MinInt32
+				break
 			}
 			if result > math.MaxInt32 {
 				result = math.MaxInt32
